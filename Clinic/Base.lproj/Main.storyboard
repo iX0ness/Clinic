@@ -87,7 +87,7 @@
                                             <outlet property="lastNameLabel" destination="a0M-Oi-TNf" id="OPZ-vN-8fY"/>
                                             <outlet property="specialtyLabel" destination="Dcz-69-arD" id="qib-By-1KB"/>
                                             <outlet property="workTimeLable" destination="gmm-9K-fzi" id="mII-yq-sNF"/>
-                                            <segue destination="FcI-lj-zMX" kind="show" id="DG7-2G-GwS"/>
+                                            <segue destination="FcI-lj-zMX" kind="show" identifier="visitDoctorSegue" id="DG7-2G-GwS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -425,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRP-wX-UTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="-169"/>
+            <point key="canvasLocation" x="666" y="-287"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bRE-Rd-Yup">

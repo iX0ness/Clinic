@@ -41,7 +41,7 @@ class WorkDay {
     }
 
     func description() -> String {
-        return "\(self.day.rawValue): \(self.startTime.rawValue) - \(self.startTime.rawValue)"
+        return "\(self.day.rawValue): \(self.startTime.rawValue) - \(self.finishTime.rawValue)"
     }
 }
 

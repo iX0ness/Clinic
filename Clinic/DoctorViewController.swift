@@ -68,13 +68,12 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.visitDoctorIdentifier {
-            if doctorTableView.indexPathForSelectedRow != nil {
-                let cell = sender as! DoctorTableViewCell
-                let destinationController = segue.destination as! VisitViewController
-                destinationController.navigationItem.title = "\(cell.firstNameLabel.text!) \(cell.lastNameLabel.text!)"
-            }
+        if let destinationController = segue.destination as? VisitViewController {
+            let cell = sender as! DoctorTableViewCell
+            let destinationController = segue.destination as! VisitViewController
+            destinationController.navigationItem.title = "\(cell.firstNameLabel.text!) \(cell.lastNameLabel.text!)"
         }
+        
     }
 
 
