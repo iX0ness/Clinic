@@ -58,6 +58,8 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,10 +70,14 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationController = segue.destination as? VisitViewController {
+        if segue.destination is VisitViewController {
             let cell = sender as! DoctorTableViewCell
             let destinationController = segue.destination as! VisitViewController
             destinationController.navigationItem.title = "\(cell.firstNameLabel.text!) \(cell.lastNameLabel.text!)"
+            if let indexOfRow = self.doctorTableView.indexPathForSelectedRow?.row {
+                destinationController.doctorIndex = indexOfRow
+            }
+
         }
         
     }

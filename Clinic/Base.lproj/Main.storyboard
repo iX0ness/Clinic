@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g12-Rb-IHH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g12-Rb-IHH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,7 +52,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="workTime" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmm-9K-fzi">
-                                                    <rect key="frame" x="38" y="210" width="187" height="21"/>
+                                                    <rect key="frame" x="38" y="210" width="74" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="ZzL-RA-B5i" secondAttribute="trailing" constant="40" id="cb5-Np-REp"/>
                                                 <constraint firstItem="ZzL-RA-B5i" firstAttribute="leading" secondItem="94x-7w-XAA" secondAttribute="trailing" constant="20" id="dwF-df-LOe"/>
                                                 <constraint firstAttribute="trailing" secondItem="a0M-Oi-TNf" secondAttribute="trailing" constant="40" id="hQl-kS-hWT"/>
-                                                <constraint firstAttribute="trailing" secondItem="gmm-9K-fzi" secondAttribute="trailing" constant="150" id="iUe-ee-wFL"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gmm-9K-fzi" secondAttribute="trailing" id="iUe-ee-wFL"/>
                                                 <constraint firstItem="94x-7w-XAA" firstAttribute="top" secondItem="GwD-vW-V1w" secondAttribute="top" constant="15" id="rph-jN-mSY"/>
                                                 <constraint firstItem="ZzL-RA-B5i" firstAttribute="top" secondItem="GwD-vW-V1w" secondAttribute="top" constant="15" id="rwk-od-Zao"/>
                                                 <constraint firstItem="Dcz-69-arD" firstAttribute="top" secondItem="a0M-Oi-TNf" secondAttribute="bottom" constant="5" id="tsa-zE-YE0"/>
@@ -452,7 +452,7 @@
                     <tabBarItem key="tabBarItem" title="" image="doctor" selectedImage="doctor" id="aZP-Xo-kzz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XsI-9a-j2w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

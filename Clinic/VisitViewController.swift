@@ -17,6 +17,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
 
     let workDays = ["20.01", "24.01", "28.01"]
+    var doctorIndex: Int!
 
     @IBOutlet weak var datesCollectionView: UICollectionView!
 
@@ -26,6 +27,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         datesCollectionView.delegate = self
         datesCollectionView.dataSource = self
+        print(doctorIndex)
 
         
     }
