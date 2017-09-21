@@ -30,15 +30,11 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     @IBOutlet weak var datesCollectionView: UICollectionView!
 
-    override func viewWillAppear(_ animated: Bool) {
-        getDates(with: reference)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         datesCollectionView.delegate = self
         datesCollectionView.dataSource = self
-        //getDates(with: reference)
+        getDates(with: reference)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -47,7 +43,8 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = datesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! DateCollectionViewCell
-        cell.dateLabel.text = workDays[indexPath.row]
+        cell.dateLabel.text = workDays[indexPath.row].replacingOccurrences(of: "dot", with: ".")
+
         return cell
 
     }
@@ -60,10 +57,6 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         if doctorIndex == 0 {
            databaseHandle = reference.child("doc1").observe(.childAdded, with: { (snapshot) in
             self.workDays.append(snapshot.key)
-
-
-
-
             })
 
         } else if doctorIndex == 1 {
