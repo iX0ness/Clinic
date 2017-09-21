@@ -17,7 +17,14 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         static let timesViewControllerId = "timesViewControllerId"
     }
 
-    var workDays = [String]()
+    var workDays = [String]() {
+        willSet {
+            getDates(with: reference)
+        }
+        didSet {
+            datesCollectionView.reloadData()
+        }
+    }
     var doctorIndex: Int!
     var reference = Database.database().reference()
     var databaseHandle: DatabaseHandle?
@@ -27,6 +34,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     override func viewWillAppear(_ animated: Bool) {
         getDates(with: reference)
+
     }
 
 
@@ -34,11 +42,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         datesCollectionView.delegate = self
         datesCollectionView.dataSource = self
-        getDates(with: reference)
 
-
-
-        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -47,10 +51,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = datesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! DateCollectionViewCell
-
         cell.dateLabel.text = workDays[indexPath.row]
-        print(workDays[indexPath.row])
-
         return cell
 
     }
@@ -63,6 +64,8 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         if doctorIndex == 0 {
            databaseHandle = reference.child("doc1").observe(.childAdded, with: { (snapshot) in
             self.workDays.append(snapshot.key)
+            print(self.workDays.count)
+
 
 
             })
@@ -87,7 +90,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 //        self.navigationController?.pushViewController(timesPage!, animated: true)
 //
 //    }
-    
+
 
     
 
