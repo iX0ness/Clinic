@@ -18,9 +18,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
 
     var workDays = [String]() {
-        willSet {
-            getDates(with: reference)
-        }
+
         didSet {
             datesCollectionView.reloadData()
         }
@@ -34,15 +32,13 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     override func viewWillAppear(_ animated: Bool) {
         getDates(with: reference)
-
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         datesCollectionView.delegate = self
         datesCollectionView.dataSource = self
-
+        //getDates(with: reference)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,15 +60,12 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         if doctorIndex == 0 {
            databaseHandle = reference.child("doc1").observe(.childAdded, with: { (snapshot) in
             self.workDays.append(snapshot.key)
-            print(self.workDays.count)
+
 
 
 
             })
-//            Database.database().reference().child("doc1").observe(.childAdded, with: { (snapshot) in
-//                guard let dict = snapshot.value as? [String:Any]
-//
-//            })
+
         } else if doctorIndex == 1 {
 
         } else if doctorIndex == 2 {
@@ -82,16 +75,5 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
 
     }
-
-
-
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let timesPage = self.storyboard?.instantiateViewController(withIdentifier: Constants.timesViewControllerId)
-//        self.navigationController?.pushViewController(timesPage!, animated: true)
-//
-//    }
-
-
-    
 
 }
