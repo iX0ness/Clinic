@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class VisitViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -16,18 +17,26 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         static let timesViewControllerId = "timesViewControllerId"
     }
 
-    let workDays = ["20.01", "24.01", "28.01"]
+    var workDays = [String]()
     var doctorIndex: Int!
+    var reference = Database.database().reference()
+    var databaseHandle: DatabaseHandle?
+
 
     @IBOutlet weak var datesCollectionView: UICollectionView!
 
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        getDates(with: reference)
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         datesCollectionView.delegate = self
         datesCollectionView.dataSource = self
-        print(doctorIndex)
+        getDates(with: reference)
+
+
 
         
     }
@@ -38,7 +47,9 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = datesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! DateCollectionViewCell
+
         cell.dateLabel.text = workDays[indexPath.row]
+        print(workDays[indexPath.row])
 
         return cell
 
@@ -46,6 +57,27 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: Constants.timesSegueIdentifier, sender: nil)
+    }
+
+    func getDates(with reference: DatabaseReference) {
+        if doctorIndex == 0 {
+           databaseHandle = reference.child("doc1").observe(.childAdded, with: { (snapshot) in
+            self.workDays.append(snapshot.key)
+
+
+            })
+//            Database.database().reference().child("doc1").observe(.childAdded, with: { (snapshot) in
+//                guard let dict = snapshot.value as? [String:Any]
+//
+//            })
+        } else if doctorIndex == 1 {
+
+        } else if doctorIndex == 2 {
+
+        } else {
+            
+        }
+
     }
 
 
