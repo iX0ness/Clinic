@@ -43,30 +43,39 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = datesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! DateCollectionViewCell
+
         cell.dateLabel.text = workDays[indexPath.row].replacingOccurrences(of: "dot", with: ".")
+
 
         return cell
 
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Constants.timesSegueIdentifier, sender: nil)
+        var cell = datesCollectionView.cellForItem(at: indexPath)
+        self.performSegue(withIdentifier: Constants.timesSegueIdentifier, sender: cell)
     }
+
+
+
 
     func getDates(with reference: DatabaseReference) {
         if doctorIndex == 0 {
            databaseHandle = reference.child("doc1").observe(.childAdded, with: { (snapshot) in
             self.workDays.append(snapshot.key)
+
             })
 
         } else if doctorIndex == 1 {
             databaseHandle = reference.child("doc2").observe(.childAdded, with: { (snapshot) in
                 self.workDays.append(snapshot.key)
+
             })
 
         } else if doctorIndex == 2 {
             databaseHandle = reference.child("doc3").observe(.childAdded, with: { (snapshot) in
                 self.workDays.append(snapshot.key)
+
             })
 
         } else {
@@ -83,6 +92,13 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.present(alert, animated: true, completion: nil)
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is TimesViewController {
+            let cell = sender as! DateCollectionViewCell
+            segue.destination.navigationItem.title = "\(String(describing: cell.dateLabel.text!))"
+
+        }
+
+    }
 
 }
