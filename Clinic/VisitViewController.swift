@@ -60,13 +60,29 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
             })
 
         } else if doctorIndex == 1 {
+            databaseHandle = reference.child("doc2").observe(.childAdded, with: { (snapshot) in
+                self.workDays.append(snapshot.key)
+            })
 
         } else if doctorIndex == 2 {
+            databaseHandle = reference.child("doc3").observe(.childAdded, with: { (snapshot) in
+                self.workDays.append(snapshot.key)
+            })
 
         } else {
-            
+            createAlert(title: "Error", message: "Connection lost")
         }
 
     }
+
+    func createAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
 
 }

@@ -17,6 +17,7 @@
 		3249F4801F66C0940045C620 /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249F47F1F66C0940045C620 /* DoctorTableViewCell.swift */; };
 		3249F4821F66CAC80045C620 /* VisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249F4811F66CAC80045C620 /* VisitViewController.swift */; };
 		329BB7BC1F693D2000C75EC9 /* ReservationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BB7BB1F693D2000C75EC9 /* ReservationTableViewController.swift */; };
+		32AD060A1F75168200A142DC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AD06091F75168200A142DC /* Networking.swift */; };
 		32BB3F6D1F71311300F0A30F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BB3F6C1F71311300F0A30F /* GoogleService-Info.plist */; };
 		32C51FEC1F67FB9E00C6F4FF /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C51FEB1F67FB9E00C6F4FF /* DateCollectionViewCell.swift */; };
 		32C51FEE1F6803A500C6F4FF /* TimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C51FED1F6803A500C6F4FF /* TimesViewController.swift */; };
@@ -36,6 +37,7 @@
 		3249F47F1F66C0940045C620 /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
 		3249F4811F66CAC80045C620 /* VisitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitViewController.swift; sourceTree = "<group>"; };
 		329BB7BB1F693D2000C75EC9 /* ReservationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewController.swift; sourceTree = "<group>"; };
+		32AD06091F75168200A142DC /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		32BB3F6C1F71311300F0A30F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		32C51FEB1F67FB9E00C6F4FF /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		32C51FED1F6803A500C6F4FF /* TimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				3249F47B1F66BB6E0045C620 /* Doctor.swift */,
 				3249F47D1F66BC4F0045C620 /* WorkDay.swift */,
+				32AD06091F75168200A142DC /* Networking.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3249F4651F66B8660045C620 /* AppDelegate.swift in Sources */,
+				32AD060A1F75168200A142DC /* Networking.swift in Sources */,
 				3249F47E1F66BC4F0045C620 /* WorkDay.swift in Sources */,
 				3249F47A1F66BA970045C620 /* DoctorViewController.swift in Sources */,
 				3249F47C1F66BB6E0045C620 /* Doctor.swift in Sources */,
