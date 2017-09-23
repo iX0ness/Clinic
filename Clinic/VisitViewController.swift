@@ -30,11 +30,15 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     @IBOutlet weak var datesCollectionView: UICollectionView!
 
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         datesCollectionView.delegate = self
         datesCollectionView.dataSource = self
         getDates(with: reference)
+        
+
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,7 +56,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var cell = datesCollectionView.cellForItem(at: indexPath)
+        let cell = datesCollectionView.cellForItem(at: indexPath)
         self.performSegue(withIdentifier: Constants.timesSegueIdentifier, sender: cell)
     }
 
@@ -95,10 +99,16 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is TimesViewController {
             let cell = sender as! DateCollectionViewCell
-            segue.destination.navigationItem.title = "\(String(describing: cell.dateLabel.text!))"
+            let destinationController = segue.destination as! TimesViewController
+            destinationController.navigationItem.title = "\(String(describing: cell.dateLabel.text!))"
+            if let dateValue = cell.dateLabel.text {
+                destinationController.selectedDay = dateValue
+                destinationController.doctorIndex = doctorIndex
+                
+            }
+            
 
         }
 
     }
-
 }
