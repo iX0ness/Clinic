@@ -34,8 +34,8 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
                          lastName: "Zieliński",
                          specialty: "Logopeda",
                          image: UIImage(named: "l3")!,
-                         workDays: [WorkDay(day: .fri, startTime: .ten, finishTime: .sixteen),
-                                    WorkDay(day: .tues, startTime: .twelve, finishTime: .seventeen)])
+                         workDays: [WorkDay(day: .tues, startTime: .twelve, finishTime: .seventeen),
+                                    WorkDay(day: .fri, startTime: .ten, finishTime: .sixteen)])
 
     var doctors = [Doctor]()
 
@@ -68,6 +68,8 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
 
     }
+
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is VisitViewController {

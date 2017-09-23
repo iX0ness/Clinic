@@ -16,6 +16,11 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         static let timesSegueIdentifier = "timesListSegue"
         static let timesViewControllerId = "timesViewControllerId"
     }
+    private struct Doctors {
+        static let doctor1 = "doc1"
+        static let doctor2 = "doc2"
+        static let doctor3 = "doc3"
+    }
 
     var workDays = [String]() {
 
@@ -65,19 +70,19 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func getDates(with reference: DatabaseReference) {
         if doctorIndex == 0 {
-           databaseHandle = reference.child("doc1").observe(.childAdded, with: { (snapshot) in
+           databaseHandle = reference.child(Doctors.doctor1).observe(.childAdded, with: { (snapshot) in
             self.workDays.append(snapshot.key)
 
             })
 
         } else if doctorIndex == 1 {
-            databaseHandle = reference.child("doc2").observe(.childAdded, with: { (snapshot) in
+            databaseHandle = reference.child(Doctors.doctor2).observe(.childAdded, with: { (snapshot) in
                 self.workDays.append(snapshot.key)
 
             })
 
         } else if doctorIndex == 2 {
-            databaseHandle = reference.child("doc3").observe(.childAdded, with: { (snapshot) in
+            databaseHandle = reference.child(Doctors.doctor3).observe(.childAdded, with: { (snapshot) in
                 self.workDays.append(snapshot.key)
 
             })
@@ -106,9 +111,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
                 destinationController.doctorIndex = doctorIndex
                 
             }
-            
-
         }
-
     }
+    
 }

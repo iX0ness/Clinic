@@ -27,6 +27,9 @@ class DoctorTableViewCell: UITableViewCell {
         specialtyLabel.text = doctor.specialty
         doctorImageView.image = doctor.image
         workTimeLable.text = doctor.presentWorkDays().description
+        let image = UIImage(named: "cellBackground")
+        let imageView = UIImageView(image: image)
+        self.backgroundView = imageView
     }
 
 
