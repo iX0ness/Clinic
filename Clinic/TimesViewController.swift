@@ -68,6 +68,7 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.cellIdentifier)
         cell.textLabel?.text = times[indexPath.row]
+
         return cell
     }
     
@@ -76,6 +77,7 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: Constants.reservationSegueIdentifier, sender: nil)
     }
 
@@ -135,7 +137,7 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.times.append(snapshot.key)
                 })
             default:
-                print("Error")
+                createAlert(title: "Error", message: "The server is temporary crashed")
             }
         } else if doctorIndex == 1 {
             switch selectedDay {
@@ -160,7 +162,7 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.times.append(snapshot.key)
                 })
             default:
-                print("Error")
+                createAlert(title: "Error", message: "The server is temporary crashed")
             }
 
         } else if doctorIndex == 2 {
@@ -202,18 +204,21 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.times.append(snapshot.key)
                 })
             default:
-                print("Error")
+                createAlert(title: "Error", message: "The server is temporary crashed")
             }
         } else {
-            print("ERROR")
+            createAlert(title: "Error", message: "The server is temporary crashed")
         }
     }
 
-
-
-
-
-
+    func createAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 
     
+
 }

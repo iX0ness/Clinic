@@ -17,7 +17,8 @@ class ReservationTableViewController: UITableViewController {
     @IBOutlet weak var lastNameLabel: UITextField!
     @IBOutlet weak var peselLabel: UITextField!
     @IBOutlet weak var phoneLabel: UITextField!
-
+    @IBOutlet var reservationTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +43,11 @@ class ReservationTableViewController: UITableViewController {
         }
         return rows
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        reservationTableView.deselectRow(at: indexPath, animated: true)
+    }
+
     @IBAction func reserveTimeAction(_ sender: Any) {
         
     }

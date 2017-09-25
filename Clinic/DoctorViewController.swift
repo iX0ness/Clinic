@@ -46,6 +46,10 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
         doctorTableView.delegate = self
         doctorTableView.dataSource = self
         doctors = [doctor1, doctor2, doctor3]
+        let image = UIImage(named: "Background")
+        let imageView = UIImageView(image: image)
+        doctorTableView.backgroundView = imageView
+
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,6 +87,8 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
+
+
 
 
 

@@ -42,6 +42,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         datesCollectionView.delegate = self
         datesCollectionView.dataSource = self
         getDates(with: reference)
+        configureCollectionView()
         
 
     }
@@ -52,9 +53,9 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = datesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! DateCollectionViewCell
-
+        cell.configureCell()
         cell.dateLabel.text = workDays[indexPath.row].replacingOccurrences(of: "dot", with: ".")
-
+        
 
         return cell
 
@@ -113,5 +114,13 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
             }
         }
     }
-    
+
+    func configureCollectionView() {
+        let image = UIImage(named: "Background")
+        let imageView = UIImageView(image: image)
+        datesCollectionView.backgroundView = imageView
+        datesCollectionView.contentInset = UIEdgeInsets(top: 10, left: 15, bottom: 5, right: 15)
+    }
+   
+
 }

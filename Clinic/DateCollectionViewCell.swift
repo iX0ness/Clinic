@@ -11,4 +11,10 @@ import UIKit
 class DateCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
 
+
+    func configureCell() {
+        let image = UIImage(named: "circle")
+        let imageView = UIImageView(image: image)
+        self.backgroundView = imageView
+    }
 }
