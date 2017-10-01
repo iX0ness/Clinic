@@ -78,7 +78,8 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: Constants.reservationSegueIdentifier, sender: nil)
+        let cell = timesTableView.cellForRow(at: indexPath)
+        performSegue(withIdentifier: Constants.reservationSegueIdentifier, sender: cell)
     }
 
     func getTimes(with reference: DatabaseReference) {
@@ -219,6 +220,20 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.present(alert, animated: true, completion: nil)
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ReservationTableViewController {
+            let destinationController = segue.destination as! ReservationTableViewController
+            let cell = sender as! UITableViewCell
+            if let selectedTime = cell.textLabel?.text! {
+                destinationController.selectedTime = selectedTime
+            }
+            destinationController.selectedDay = convert()
+            destinationController.doctorIndex = doctorIndex
+        }
+    }
+
+    func convert() -> String {
+        return selectedDay.replacingOccurrences(of: ".", with: "dot")
+    }
 
 }
