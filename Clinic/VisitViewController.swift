@@ -43,8 +43,6 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         datesCollectionView.dataSource = self
         getDates(with: reference)
         configureCollectionView()
-        
-
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -55,10 +53,7 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         let cell = datesCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! DateCollectionViewCell
         cell.configureCell()
         cell.dateLabel.text = workDays[indexPath.row].replacingOccurrences(of: "dot", with: ".")
-        
-
         return cell
-
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -73,25 +68,21 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         if doctorIndex == 0 {
            databaseHandle = reference.child(Doctors.doctor1).observe(.childAdded, with: { (snapshot) in
             self.workDays.append(snapshot.key)
-
             })
 
         } else if doctorIndex == 1 {
             databaseHandle = reference.child(Doctors.doctor2).observe(.childAdded, with: { (snapshot) in
                 self.workDays.append(snapshot.key)
-
             })
 
         } else if doctorIndex == 2 {
             databaseHandle = reference.child(Doctors.doctor3).observe(.childAdded, with: { (snapshot) in
                 self.workDays.append(snapshot.key)
-
             })
 
         } else {
             createAlert(title: "Error", message: "Connection lost")
         }
-
     }
 
     func createAlert(title: String, message: String) {
@@ -110,7 +101,6 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
             if let dateValue = cell.dateLabel.text {
                 destinationController.selectedDay = dateValue
                 destinationController.doctorIndex = doctorIndex
-                
             }
         }
     }

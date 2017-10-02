@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32372A0C1F8167300080BC05 /* ClinicImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32372A0B1F8167300080BC05 /* ClinicImageCollectionViewCell.swift */; };
+		32372A0E1F8167CF0080BC05 /* ClinicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32372A0D1F8167CF0080BC05 /* ClinicInformationViewController.swift */; };
 		3249F4651F66B8660045C620 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249F4641F66B8660045C620 /* AppDelegate.swift */; };
 		3249F46A1F66B8660045C620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3249F4681F66B8660045C620 /* Main.storyboard */; };
 		3249F46C1F66B8660045C620 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3249F46B1F66B8660045C620 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32372A0B1F8167300080BC05 /* ClinicImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		32372A0D1F8167CF0080BC05 /* ClinicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicInformationViewController.swift; sourceTree = "<group>"; };
 		3249F4611F66B8660045C620 /* Clinic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clinic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3249F4641F66B8660045C620 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3249F4691F66B8660045C620 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			children = (
 				3249F47F1F66C0940045C620 /* DoctorTableViewCell.swift */,
 				32C51FEB1F67FB9E00C6F4FF /* DateCollectionViewCell.swift */,
+				32372A0B1F8167300080BC05 /* ClinicImageCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 				3249F4811F66CAC80045C620 /* VisitViewController.swift */,
 				32C51FED1F6803A500C6F4FF /* TimesViewController.swift */,
 				329BB7BB1F693D2000C75EC9 /* ReservationTableViewController.swift */,
+				32372A0D1F8167CF0080BC05 /* ClinicInformationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -266,11 +272,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3249F4651F66B8660045C620 /* AppDelegate.swift in Sources */,
+				32372A0C1F8167300080BC05 /* ClinicImageCollectionViewCell.swift in Sources */,
 				32AD060A1F75168200A142DC /* Networking.swift in Sources */,
 				3249F47E1F66BC4F0045C620 /* WorkDay.swift in Sources */,
 				3249F47A1F66BA970045C620 /* DoctorViewController.swift in Sources */,
 				3249F47C1F66BB6E0045C620 /* Doctor.swift in Sources */,
 				3249F4821F66CAC80045C620 /* VisitViewController.swift in Sources */,
+				32372A0E1F8167CF0080BC05 /* ClinicInformationViewController.swift in Sources */,
 				329BB7BC1F693D2000C75EC9 /* ReservationTableViewController.swift in Sources */,
 				32C51FEE1F6803A500C6F4FF /* TimesViewController.swift in Sources */,
 				3249F4801F66C0940045C620 /* DoctorTableViewCell.swift in Sources */,

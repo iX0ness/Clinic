@@ -28,27 +28,6 @@ class ReservationTableViewController: UITableViewController {
         static let isBusy = "isBusy"
     }
 
-    private struct Dates {
-        static let _2dot10 = "2dot10"
-        static let _3dot10 = "3dot10"
-        static let _4dot10 = "4dot10"
-        static let _6dot10 = "6dot10"
-        static let _9dot10 = "9dot10"
-        static let _10dot10 = "10dot10"
-        static let _11dot10 = "11dot10"
-        static let _13dot10 = "13dot10"
-        static let _16dot10 = "16dot10"
-        static let _17dot10 = "17dot10"
-        static let _18dot10 = "18dot10"
-        static let _20dot10 = "20dot10"
-        static let _23dot10 = "23dot10"
-        static let _24dot10 = "24dot10"
-        static let _25dot10 = "25dot10"
-        static let _27dot10 = "27dot10"
-        static let _30dot10 = "30dot10"
-        static let _31dot10 = "31dot10"
-    }
-
     @IBOutlet weak var firstNameLabel: UITextField!
     @IBOutlet weak var lastNameLabel: UITextField!
     @IBOutlet weak var peselLabel: UITextField!
@@ -118,56 +97,85 @@ class ReservationTableViewController: UITableViewController {
     func writeRecord(docChild: Int, timeChild: String, dateChild: String) {
         if docChild == 0 {
             let selectedDoctor = Doctors.doc1
-            var isBusy = String()
-            databaseHandle = reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).observe(.childAdded, with: { (snapshot) in
-                isBusy = (snapshot.value as! String)
-            })
+            var isBusy = Bool()
 
-            if isBusy == "false" {
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).setValue("true")
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.firstname).setValue(firstNameLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.lastname).setValue(lastNameLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.pesel).setValue(peselLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.telephone).setValue(phoneLabel.text)
-                
-            } else {
-                createAlert(title: "Przepraszamy - termin jest zajęty", message: "Proszę wybrać inny termin")
-            }
+            databaseHandle = reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).observe(.value, with: { (snapshot) in
+                isBusy = snapshot.value as! Bool
+                if isBusy == false {
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).setValue(true)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.firstname).setValue(self.firstNameLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.lastname).setValue(self.lastNameLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.pesel).setValue(self.self.peselLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.telephone).setValue(self.phoneLabel.text)
+                    self.clearAllInputs()
+                    self.createAlert(title: "Dokonano zapisu", message: "Dzień: \(self.convertDate(date: self.selectedDay))\nGodzina:  \(self.selectedTime)")
+
+
+                } else {
+                    self.createAlert(title: "Przepraszamy - termin jest zajęty", message: "Proszę wybrać inny termin")
+
+                }
+
+            })
 
         } else if docChild == 1 {
             let selectedDoctor = Doctors.doc2
-            var isBusy = String()
-            databaseHandle = reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).observe(.childAdded, with: { (snapshot) in
-                isBusy = (snapshot.value as! String)
-            })
-            if isBusy == "false" {
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).setValue("true")
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.firstname).setValue(firstNameLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.lastname).setValue(lastNameLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.pesel).setValue(peselLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.telephone).setValue(phoneLabel.text)
-            } else {
-                createAlert(title: "Przepraszamy - termin jest zajęty", message: "Proszę wybrać inny termin")
-            }
-        } else if docChild == 2 {
-            let selectedDoctor = Doctors.doc3
-            var isBusy = String()
-            databaseHandle = reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).observe(.childAdded, with: { (snapshot) in
-                isBusy = (snapshot.value as! String)
+            var isBusy = Bool()
+            databaseHandle = reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).observe(.value, with: { (snapshot) in
+                isBusy = snapshot.value as! Bool
+                if isBusy == false {
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).setValue(true)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.firstname).setValue(self.firstNameLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.lastname).setValue(self.lastNameLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.pesel).setValue(self.self.peselLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.telephone).setValue(self.phoneLabel.text)
+                    self.clearAllInputs()
+                    self.createAlert(title: "Dokonano zapisu", message: "Dzień: \(self.convertDate(date: self.selectedDay))\nGodzina:  \(self.selectedTime)")
+
+
+                } else {
+                    self.createAlert(title: "Przepraszamy - termin jest zajęty", message: "Proszę wybrać inny termin")
+
+                }
 
             })
-            if isBusy == "false" {
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).setValue("true")
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.firstname).setValue(firstNameLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.lastname).setValue(lastNameLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.pesel).setValue(peselLabel.text)
-                reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.telephone).setValue(phoneLabel.text)
-            } else {
-                createAlert(title: "Przepraszamy - termin jest zajęty", message: "Proszę wybrać inny termin")
-            }
+
+        } else if docChild == 2 {
+            let selectedDoctor = Doctors.doc3
+            var isBusy = Bool()
+            databaseHandle = reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).observe(.value, with: { (snapshot) in
+                isBusy = snapshot.value as! Bool
+                if isBusy == false {
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.isBusy).setValue(true)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.firstname).setValue(self.firstNameLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.lastname).setValue(self.lastNameLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.pesel).setValue(self.self.peselLabel.text)
+                    self.reference.child(selectedDoctor).child(dateChild).child(timeChild).child(ReservationFields.telephone).setValue(self.phoneLabel.text)
+                    self.clearAllInputs()
+                    self.createAlert(title: "Dokonano zapisu", message: "Dzień: \(self.convertDate(date: self.selectedDay))\nGodzina:  \(self.selectedTime)")
+
+
+                } else {
+                    self.createAlert(title: "Przepraszamy - termin jest zajęty", message: "Proszę wybrać inny termin")
+
+                }
+
+            })
+
         } else {
             createAlert(title: "Error", message: "Database is crashed")
         }
+    }
+
+    func convertDate(date: String) -> String {
+        return date.replacingOccurrences(of: "dot", with: ".")
+    }
+
+    func clearAllInputs() {
+        self.firstNameLabel.text = ""
+        self.lastNameLabel.text = ""
+        self.peselLabel.text = ""
+        self.phoneLabel.text = ""
     }
 
 }

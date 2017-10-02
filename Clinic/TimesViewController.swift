@@ -68,7 +68,6 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.cellIdentifier)
         cell.textLabel?.text = times[indexPath.row]
-
         return cell
     }
     
@@ -229,6 +228,7 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             destinationController.selectedDay = convert()
             destinationController.doctorIndex = doctorIndex
+            destinationController.navigationItem.title = cell.textLabel?.text
         }
     }
 

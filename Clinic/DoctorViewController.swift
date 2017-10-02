@@ -49,7 +49,6 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
         let image = UIImage(named: "Background")
         let imageView = UIImageView(image: image)
         doctorTableView.backgroundView = imageView
-
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,8 +61,6 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,8 +70,6 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
 
     }
 
-
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is VisitViewController {
             let cell = sender as! DoctorTableViewCell
@@ -83,13 +78,7 @@ class DoctorViewController: UIViewController, UITableViewDataSource, UITableView
             if let indexOfRow = self.doctorTableView.indexPathForSelectedRow?.row {
                 destinationController.doctorIndex = indexOfRow
             }
-
         }
-        
     }
-
-
-
-
 
 }
