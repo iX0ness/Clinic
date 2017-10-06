@@ -9,5 +9,7 @@
 import UIKit
 
 class ClinicPhotoCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var clinicImageView: UIImageView!
+    
     
 }

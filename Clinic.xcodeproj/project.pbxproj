@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32372A0C1F8167300080BC05 /* ClinicImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32372A0B1F8167300080BC05 /* ClinicImageCollectionViewCell.swift */; };
 		32372A0E1F8167CF0080BC05 /* ClinicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32372A0D1F8167CF0080BC05 /* ClinicInformationViewController.swift */; };
 		3249F4651F66B8660045C620 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249F4641F66B8660045C620 /* AppDelegate.swift */; };
 		3249F46A1F66B8660045C620 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3249F4681F66B8660045C620 /* Main.storyboard */; };
@@ -18,6 +17,7 @@
 		3249F47E1F66BC4F0045C620 /* WorkDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249F47D1F66BC4F0045C620 /* WorkDay.swift */; };
 		3249F4801F66C0940045C620 /* DoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249F47F1F66C0940045C620 /* DoctorTableViewCell.swift */; };
 		3249F4821F66CAC80045C620 /* VisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249F4811F66CAC80045C620 /* VisitViewController.swift */; };
+		3288F7BC1F8506700081829B /* ClinicPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288F7BB1F8506700081829B /* ClinicPhotoCollectionViewCell.swift */; };
 		329BB7BC1F693D2000C75EC9 /* ReservationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BB7BB1F693D2000C75EC9 /* ReservationTableViewController.swift */; };
 		32AD060A1F75168200A142DC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AD06091F75168200A142DC /* Networking.swift */; };
 		32BB3F6D1F71311300F0A30F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BB3F6C1F71311300F0A30F /* GoogleService-Info.plist */; };
@@ -27,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		32372A0B1F8167300080BC05 /* ClinicImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		32372A0D1F8167CF0080BC05 /* ClinicInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicInformationViewController.swift; sourceTree = "<group>"; };
 		3249F4611F66B8660045C620 /* Clinic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clinic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3249F4641F66B8660045C620 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		3249F47D1F66BC4F0045C620 /* WorkDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkDay.swift; sourceTree = "<group>"; };
 		3249F47F1F66C0940045C620 /* DoctorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTableViewCell.swift; sourceTree = "<group>"; };
 		3249F4811F66CAC80045C620 /* VisitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitViewController.swift; sourceTree = "<group>"; };
+		3288F7BB1F8506700081829B /* ClinicPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		329BB7BB1F693D2000C75EC9 /* ReservationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewController.swift; sourceTree = "<group>"; };
 		32AD06091F75168200A142DC /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		32BB3F6C1F71311300F0A30F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			children = (
 				3249F47F1F66C0940045C620 /* DoctorTableViewCell.swift */,
 				32C51FEB1F67FB9E00C6F4FF /* DateCollectionViewCell.swift */,
-				32372A0B1F8167300080BC05 /* ClinicImageCollectionViewCell.swift */,
+				3288F7BB1F8506700081829B /* ClinicPhotoCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -272,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3249F4651F66B8660045C620 /* AppDelegate.swift in Sources */,
-				32372A0C1F8167300080BC05 /* ClinicImageCollectionViewCell.swift in Sources */,
 				32AD060A1F75168200A142DC /* Networking.swift in Sources */,
 				3249F47E1F66BC4F0045C620 /* WorkDay.swift in Sources */,
 				3249F47A1F66BA970045C620 /* DoctorViewController.swift in Sources */,
@@ -281,6 +280,7 @@
 				32372A0E1F8167CF0080BC05 /* ClinicInformationViewController.swift in Sources */,
 				329BB7BC1F693D2000C75EC9 /* ReservationTableViewController.swift in Sources */,
 				32C51FEE1F6803A500C6F4FF /* TimesViewController.swift in Sources */,
+				3288F7BC1F8506700081829B /* ClinicPhotoCollectionViewCell.swift in Sources */,
 				3249F4801F66C0940045C620 /* DoctorTableViewCell.swift in Sources */,
 				32C51FEC1F67FB9E00C6F4FF /* DateCollectionViewCell.swift in Sources */,
 			);

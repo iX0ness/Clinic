@@ -78,7 +78,16 @@ class ReservationTableViewController: UITableViewController {
         lastNameLabel.text != "" &&
         peselLabel.text != "" &&
             phoneLabel.text != "" {
-            writeRecord(docChild: doctorIndex, timeChild: selectedTime, dateChild: selectedDay)
+            if peselLabel.text?.characters.count == 11 && phoneLabel.text?.characters.count == 9 {
+                writeRecord(docChild: doctorIndex, timeChild: selectedTime, dateChild: selectedDay)
+            } else {
+                if peselLabel.text?.characters.count != 11 {
+                    createAlert(title: "PESEL nie jest zgodny ze wzorcem", message: "Wpisz PESEL zgodnie ze wzorcem: 00000000000")
+                } else if phoneLabel.text?.characters.count != 9 {
+                    createAlert(title: "Numer nie jest zgodny ze wzorcem", message: "Wpisz numer zgodnie ze wzorcem: 000000000")
+                }
+            }
+
             
 
         } else {
@@ -156,6 +165,7 @@ class ReservationTableViewController: UITableViewController {
 
 
                 } else {
+                    self.clearAllInputs()
                     self.createAlert(title: "Przepraszamy - termin jest zajęty", message: "Proszę wybrać inny termin")
 
                 }

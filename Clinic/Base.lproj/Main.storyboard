@@ -8,6 +8,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Lekarze-->
         <scene sceneID="8iS-KR-JgO">
@@ -409,10 +415,10 @@
             </objects>
             <point key="canvasLocation" x="5008.8000000000002" y="483.50824587706148"/>
         </scene>
-        <!--View Controller-->
+        <!--Clinic Information View Controller-->
         <scene sceneID="z2b-6s-Mrk">
             <objects>
-                <viewController id="4Ay-ZN-xm2" sceneMemberID="viewController">
+                <viewController id="4Ay-ZN-xm2" customClass="ClinicInformationViewController" customModule="Clinic" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="20t-eq-TYq"/>
                         <viewControllerLayoutGuide type="bottom" id="hM1-Hs-6hu"/>
@@ -427,10 +433,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nee-zs-bds">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PfY-Xk-AxX">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PfY-Xk-AxX">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.49803921568627452" green="0.792156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="205" id="vCM-eM-xq9"/>
+                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rZT-rq-bMh">
                                                     <size key="itemSize" width="375" height="200"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -438,7 +446,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="x0l-Wc-Hdc" customClass="ClinicImageCollectionViewCell" customModule="Clinic" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClinicPhotoCell" id="x0l-Wc-Hdc" customClass="ClinicPhotoCollectionViewCell" customModule="Clinic" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -446,18 +454,94 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OuO-gI-WBE">
-                                                                    <rect key="frame" x="0.0" y="-3" width="375" height="205"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
                                                             </subviews>
                                                         </view>
+                                                        <color key="backgroundColor" red="0.49781674149999999" green="0.79276168349999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <outlet property="clinicImageView" destination="OuO-gI-WBE" id="RBi-wm-eQH"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centrum medyczne Damiana" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiK-CJ-lUe">
+                                                <rect key="frame" x="5" y="230" width="365" height="32"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kontakt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrC-U7-3Q0">
+                                                <rect key="frame" x="142.5" y="272" width="90" height="27"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="27" id="Axg-hR-4Xq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tel: 720 834 595" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ey-93-tub">
+                                                <rect key="frame" x="123" y="304" width="129" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="T7B-jC-yr0"/>
+                                                    <constraint firstAttribute="width" constant="129" id="a55-a1-tEP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tel: 720 834 595" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcB-Dk-CLg">
+                                                <rect key="frame" x="123" y="330" width="129" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="Ayf-tx-qKV"/>
+                                                    <constraint firstAttribute="width" constant="129" id="V3B-0R-Dtr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warszawa                        ul. Zjednoczenia 36 01-838" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrG-JU-D3X">
+                                                <rect key="frame" x="97" y="356" width="180" height="74"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="74" id="Qk1-z4-iFz"/>
+                                                    <constraint firstAttribute="width" constant="180" id="dH9-r0-L2t"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eLh-nB-yLl">
+                                                <rect key="frame" x="10" y="460" width="355" height="475"/>
+                                            </mapView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.49803921569999998" green="0.79215686269999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="DiK-CJ-lUe" secondAttribute="trailing" constant="5" id="7Zs-Dz-DcB"/>
+                                            <constraint firstItem="QcB-Dk-CLg" firstAttribute="top" secondItem="3ey-93-tub" secondAttribute="bottom" constant="5" id="9J8-1R-M6e"/>
+                                            <constraint firstItem="OrG-JU-D3X" firstAttribute="top" secondItem="QcB-Dk-CLg" secondAttribute="bottom" constant="5" id="Akz-HQ-ipY"/>
+                                            <constraint firstAttribute="bottom" secondItem="eLh-nB-yLl" secondAttribute="bottom" constant="65" id="Dge-aI-OYr"/>
                                             <constraint firstAttribute="height" constant="1000" id="IE2-8K-0ed"/>
+                                            <constraint firstAttribute="bottom" secondItem="PfY-Xk-AxX" secondAttribute="bottom" constant="795" id="VWO-sx-2KR"/>
+                                            <constraint firstItem="eLh-nB-yLl" firstAttribute="top" secondItem="OrG-JU-D3X" secondAttribute="bottom" constant="30" id="X5s-Ot-U9H"/>
+                                            <constraint firstItem="PfY-Xk-AxX" firstAttribute="leading" secondItem="Nee-zs-bds" secondAttribute="leading" id="Y1O-hT-Dk6"/>
+                                            <constraint firstItem="nrC-U7-3Q0" firstAttribute="centerX" secondItem="Nee-zs-bds" secondAttribute="centerX" id="Z6J-fC-4JG"/>
+                                            <constraint firstItem="DiK-CJ-lUe" firstAttribute="leading" secondItem="Nee-zs-bds" secondAttribute="leading" constant="5" id="asd-OI-RFS"/>
+                                            <constraint firstAttribute="trailing" secondItem="PfY-Xk-AxX" secondAttribute="trailing" id="bJ6-Ys-pZe"/>
+                                            <constraint firstItem="3ey-93-tub" firstAttribute="top" secondItem="nrC-U7-3Q0" secondAttribute="bottom" constant="5" id="cQt-RD-3wg"/>
+                                            <constraint firstItem="eLh-nB-yLl" firstAttribute="leading" secondItem="Nee-zs-bds" secondAttribute="leading" constant="10" id="g1J-Vf-sxa"/>
+                                            <constraint firstItem="QcB-Dk-CLg" firstAttribute="centerX" secondItem="Nee-zs-bds" secondAttribute="centerX" id="kt3-El-k4o"/>
+                                            <constraint firstItem="nrC-U7-3Q0" firstAttribute="top" secondItem="DiK-CJ-lUe" secondAttribute="bottom" constant="10" id="miA-hE-rqr"/>
+                                            <constraint firstAttribute="trailing" secondItem="eLh-nB-yLl" secondAttribute="trailing" constant="10" id="psW-le-PhO"/>
+                                            <constraint firstItem="3ey-93-tub" firstAttribute="centerX" secondItem="Nee-zs-bds" secondAttribute="centerX" id="qgw-tv-JIv"/>
+                                            <constraint firstItem="DiK-CJ-lUe" firstAttribute="top" secondItem="PfY-Xk-AxX" secondAttribute="bottom" constant="25" id="ryO-Le-eb2"/>
+                                            <constraint firstItem="OrG-JU-D3X" firstAttribute="centerX" secondItem="Nee-zs-bds" secondAttribute="centerX" id="tVC-sR-Xil"/>
+                                            <constraint firstItem="PfY-Xk-AxX" firstAttribute="top" secondItem="Nee-zs-bds" secondAttribute="top" id="uQP-Fh-ruV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -480,6 +564,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="hospital-buildings" selectedImage="hospital-buildings" id="3pi-lK-bVi"/>
                     <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="clinicCollectionView" destination="PfY-Xk-AxX" id="B0U-DV-vgR"/>
+                        <outlet property="clinicLocation" destination="eLh-nB-yLl" id="GPs-1A-kKf"/>
+                        <outlet property="clinicView" destination="Nee-zs-bds" id="0Ml-k1-NjM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRP-wX-UTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
