@@ -19,7 +19,6 @@
 		3249F4821F66CAC80045C620 /* VisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249F4811F66CAC80045C620 /* VisitViewController.swift */; };
 		3288F7BC1F8506700081829B /* ClinicPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288F7BB1F8506700081829B /* ClinicPhotoCollectionViewCell.swift */; };
 		329BB7BC1F693D2000C75EC9 /* ReservationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BB7BB1F693D2000C75EC9 /* ReservationTableViewController.swift */; };
-		32AD060A1F75168200A142DC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AD06091F75168200A142DC /* Networking.swift */; };
 		32BB3F6D1F71311300F0A30F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BB3F6C1F71311300F0A30F /* GoogleService-Info.plist */; };
 		32C51FEC1F67FB9E00C6F4FF /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C51FEB1F67FB9E00C6F4FF /* DateCollectionViewCell.swift */; };
 		32C51FEE1F6803A500C6F4FF /* TimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C51FED1F6803A500C6F4FF /* TimesViewController.swift */; };
@@ -41,7 +40,6 @@
 		3249F4811F66CAC80045C620 /* VisitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitViewController.swift; sourceTree = "<group>"; };
 		3288F7BB1F8506700081829B /* ClinicPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		329BB7BB1F693D2000C75EC9 /* ReservationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewController.swift; sourceTree = "<group>"; };
-		32AD06091F75168200A142DC /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		32BB3F6C1F71311300F0A30F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		32C51FEB1F67FB9E00C6F4FF /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		32C51FED1F6803A500C6F4FF /* TimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			children = (
 				3249F47B1F66BB6E0045C620 /* Doctor.swift */,
 				3249F47D1F66BC4F0045C620 /* WorkDay.swift */,
-				32AD06091F75168200A142DC /* Networking.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -221,7 +218,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		03E13FED2C703FC9BD026B43 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -236,7 +233,7 @@
 		};
 		61FAE1A3D12EE3BB32DC1A40 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -272,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3249F4651F66B8660045C620 /* AppDelegate.swift in Sources */,
-				32AD060A1F75168200A142DC /* Networking.swift in Sources */,
 				3249F47E1F66BC4F0045C620 /* WorkDay.swift in Sources */,
 				3249F47A1F66BA970045C620 /* DoctorViewController.swift in Sources */,
 				3249F47C1F66BB6E0045C620 /* Doctor.swift in Sources */,
@@ -339,6 +335,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -355,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -395,6 +392,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -405,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -419,7 +417,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EDG9RYZ466;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Clinic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iX0ness.Clinic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,7 +434,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EDG9RYZ466;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Clinic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iX0ness.Clinic;
 				PRODUCT_NAME = "$(TARGET_NAME)";

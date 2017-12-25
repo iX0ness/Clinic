@@ -8,6 +8,11 @@
 
 import Foundation
 
+
+/**
+ Class which represents Day model
+ */
+
 class WorkDay {
     var day: WeekDay
     var startTime: Time
@@ -19,14 +24,35 @@ class WorkDay {
         self.finishTime = finishTime
     }
 
+    /**
+     Enumeration which represents week days
+
+     ````
+     case PN - Monday
+     case WT - Tuesday
+     case ŚR - Wednesday
+     case CZ - Thursday
+     case PT - Friday
+     ````
+     */
+
     enum WeekDay: String {
+        /// Monday
         case mon = "PN"
+        /// Tuesday
         case tues = "WT"
+        /// Wednesday
         case wed = "ŚR"
+        ///Thursday
         case thurs = "CZ"
+        /// Friday
         case fri = "PT"
     }
 
+
+    /**
+     Enumeration which represent working hours
+    */
     enum Time: String {
         case eight = "8:00"
         case nine = "9:00"
@@ -40,6 +66,12 @@ class WorkDay {
         case seventeen = "17:00"
     }
 
+
+    /**
+     Function represents properties of WorkDay.swift instance
+
+     - Returns: String which contains WorkDay properties
+    */
     func description() -> String {
         return "\(self.day.rawValue): \(self.startTime.rawValue) - \(self.finishTime.rawValue)"
     }

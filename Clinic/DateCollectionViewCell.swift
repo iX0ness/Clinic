@@ -8,9 +8,17 @@
 
 import UIKit
 
+/**
+ Custom cell which is used in VisitViewController.swift
+ */
+
 class DateCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
 
+
+    /**
+     Function which creating cell's view
+     */
 
     func configureCell() {
         let image = UIImage(named: "circle")

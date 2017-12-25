@@ -11,16 +11,28 @@ import FirebaseDatabase
 
 class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    /**
+     The structure contains data, which won't be modified.
+     */
     private struct Constants {
         static let cellIdentifier = "cell"
         static let reservationSegueIdentifier = "reservationSegueIdentifier"
 
     }
+
+    /**
+     The structure contains names of doctors instances for using it in code instead of writing it every time if it needs.
+     */
     private struct Doctors {
         static let doctor1 = "doc1"
         static let doctor2 = "doc2"
         static let doctor3 = "doc3"
     }
+
+    /**
+     The structure contains doctors working days.
+    */
+
     private struct Dates {
         static let _2dot10 = "2dot10"
         static let _3dot10 = "3dot10"
@@ -44,6 +56,7 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var timesTableView: UITableView!
 
+    // MARK: -  Stored properties
     var selectedDay = String()
     var doctorIndex: Int!
     var reference = Database.database().reference()
@@ -80,6 +93,11 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = timesTableView.cellForRow(at: indexPath)
         performSegue(withIdentifier: Constants.reservationSegueIdentifier, sender: cell)
     }
+
+    /// Function gets times when doctor works for selected date.
+    ///
+    /// - parameter reference: Reference to database.
+    ///
 
     func getTimes(with reference: DatabaseReference) {
         if doctorIndex == 0 {
@@ -211,6 +229,12 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
+    /// Function creates allert to inform user.
+    ///
+    /// - parameter title: Allert's title.
+    /// - parameter message: Describes allert's details.
+    ///
+
     func createAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -231,6 +255,11 @@ class TimesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             destinationController.navigationItem.title = cell.textLabel?.text
         }
     }
+
+    /**
+     Converting date from database to visible form for user.
+     - Returns: string with date.
+    */
 
     func convert() -> String {
         return selectedDay.replacingOccurrences(of: ".", with: "dot")

@@ -11,11 +11,15 @@ import FirebaseDatabase
 
 class VisitViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    /**
+     The structure contains data, which won't be modified.
+     */
     private struct Constants {
         static let cellIdentifier = "dateCell"
         static let timesSegueIdentifier = "timesListSegue"
         static let timesViewControllerId = "timesViewControllerId"
     }
+
     private struct Doctors {
         static let doctor1 = "doc1"
         static let doctor2 = "doc2"
@@ -28,7 +32,10 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
             datesCollectionView.reloadData()
         }
     }
+
+    // MARK: -  Stored properties
     var doctorIndex: Int!
+    /// Reference to firebase database
     var reference = Database.database().reference()
     var databaseHandle: DatabaseHandle?
 
@@ -63,6 +70,10 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 
 
+    /// Function gets work days of selected doctor.
+    ///
+    /// - parameter reference: Reference to database.
+    ///
 
     func getDates(with reference: DatabaseReference) {
         if doctorIndex == 0 {
@@ -85,6 +96,13 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
 
+
+    /// Function creates allert to inform user.
+    ///
+    /// - parameter title: Allert's title.
+    /// - parameter message: Describes allert's details.
+    ///
+
     func createAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -104,6 +122,10 @@ class VisitViewController: UIViewController, UICollectionViewDelegate, UICollect
             }
         }
     }
+
+    /**
+     Function configure view of CollectionView
+    */
 
     func configureCollectionView() {
         let image = UIImage(named: "Background")

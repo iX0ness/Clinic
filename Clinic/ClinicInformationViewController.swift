@@ -11,6 +11,10 @@ import MapKit
 
 class ClinicInformationViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    /**
+     The structure contains data, which won't be modified.
+     */
+
     private struct Constants {
         static let clinicPhotoCellIdentifier = "ClinicPhotoCell"
         
@@ -21,6 +25,8 @@ class ClinicInformationViewController: UIViewController, UICollectionViewDelegat
 
     
     @IBOutlet weak var clinicCollectionView: UICollectionView!
+
+    // MARK: -  Stored properties
 
     var photoArray = ["cl1.jpg", "cl2.jpg", "cl3.jpg", "cl4.jpg"]
     var scrollTimer = Timer()
@@ -56,11 +62,19 @@ class ClinicInformationViewController: UIViewController, UICollectionViewDelegat
 
     }
 
+    /**
+     Function starts timer to change clinic images
+    */
+
     @objc func startTimer(theTimer: Timer) {
         UIView.animate(withDuration: 3.0, delay: 0, options: .curveEaseOut, animations: {
             self.clinicCollectionView.scrollToItem(at: IndexPath(row: theTimer.userInfo! as! Int, section: 0), at: .centeredVertically, animated: false)
             }, completion: nil)
     }
+
+    /**
+     Function creates mark on map where clinic is located
+    */
 
     func showClinicLocation() {
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
@@ -76,9 +90,6 @@ class ClinicInformationViewController: UIViewController, UICollectionViewDelegat
 
         clinicLocation.addAnnotation(annotation)
     }
-
-
-    
 
 
 }

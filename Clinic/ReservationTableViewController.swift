@@ -11,14 +11,27 @@ import FirebaseDatabase
 
 class ReservationTableViewController: UITableViewController {
 
+
+    /**
+     The structure contains data, which won't be modified.
+     */
     private struct Constants {
         static let numberOfRowsInSection = [4, 1]
     }
+
+    /**
+     The structure contains names of doctors instances for using it in code instead of writing it every time if it needs.
+     */
+
     private struct Doctors {
         static let doc1 = "doc1"
         static let doc2 = "doc2"
         static let doc3 = "doc3"
     }
+
+    /**
+     The structure contains names of fields in reservation form for using it in code instead of writing it every time if it needs.
+     */
 
     private struct ReservationFields {
         static let firstname = "firstname"
@@ -34,6 +47,7 @@ class ReservationTableViewController: UITableViewController {
     @IBOutlet weak var phoneLabel: UITextField!
     @IBOutlet var reservationTableView: UITableView!
 
+    // MARK: -  Stored properties
     var selectedDay = String()
     var doctorIndex: Int!
     var selectedTime = String()
@@ -54,7 +68,7 @@ class ReservationTableViewController: UITableViewController {
 
     }
 
-    // MARK: - Table view data source
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -72,6 +86,10 @@ class ReservationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         reservationTableView.deselectRow(at: indexPath, animated: true)
     }
+
+    /**
+     Function for reservation of selected date and time.
+    */
 
     @IBAction func reserveTimeAction(_ sender: Any) {
         if firstNameLabel.text != "" &&
@@ -95,6 +113,12 @@ class ReservationTableViewController: UITableViewController {
         }
     }
 
+    /// Function creates allert to inform user.
+    ///
+    /// - parameter title: Allert's title.
+    /// - parameter message: Describes allert's details.
+    ///
+
     func createAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -103,6 +127,12 @@ class ReservationTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    /// Function writes patients data to database.
+    ///
+    /// - parameter docChild: Selected doctor.
+    /// - parameter timeChild: Selected time.
+    /// - parameter dateChild: Selected date.
+    ///
     func writeRecord(docChild: Int, timeChild: String, dateChild: String) {
         if docChild == 0 {
             let selectedDoctor = Doctors.doc1
@@ -177,9 +207,18 @@ class ReservationTableViewController: UITableViewController {
         }
     }
 
+    
+    /**
+     Function converts date from user format to database format.
+     */
+
     func convertDate(date: String) -> String {
         return date.replacingOccurrences(of: "dot", with: ".")
     }
+
+    /**
+     Function clears form inputs if reservation action was succesfully completed.
+     */
 
     func clearAllInputs() {
         self.firstNameLabel.text = ""

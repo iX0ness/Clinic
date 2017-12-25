@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ Class represents doctor's model.
+ */
+
 class Doctor {
 
     var firstName: String
@@ -24,6 +28,13 @@ class Doctor {
         self.image = image
         self.workDays = workDays
     }
+
+    /**
+     Function represents working days of Doctor.swift instance
+
+     - Returns: String which contains working days of doctor
+
+    */
 
     func presentWorkDays() -> String {
         var workDaysString = String()

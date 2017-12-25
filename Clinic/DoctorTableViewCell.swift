@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ Custom cell which is used in DoctorViewController.swift
+ */
+
 class DoctorTableViewCell: UITableViewCell {
 
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -20,6 +24,10 @@ class DoctorTableViewCell: UITableViewCell {
         super.awakeFromNib()
 
     }
+
+    /**
+     Function which fills cell's fields with doctor's properties
+    */
 
     func configure(with doctor: Doctor) {
         firstNameLabel.text = doctor.firstName
